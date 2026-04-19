@@ -156,15 +156,6 @@ scala> _
 - `console` 명령은 프로젝트의 소스코드 파일들을 컴파일한 뒤 클래스패스에 올려놓고 REPL을 시작합니다.
 - `consoleQuick` 명령은 프로젝트의 dependencies은 클래스패스에 포함하지만, 프로젝트 소스코드 파일은 컴파일하지 않고 REPL을 시작합니다. 이 두 번째 방법은 코드가 컴파일되지 않을 때나, 의존성(라이브러리)과 함께 테스트 코드를 실행해 보고 싶을 때 유용합니다.
 
-### See Also
-
-REPL 환경이 마음에 들지만 기본 REPL 외의 다른 대안도 사용해 보고 싶으시다면, 다음과 같은 훌륭한 무료 대안들이 있습니다.
-
-- **Ammonite REPL**은 기본 REPL보다 많은 기능을 제공하며, Recipe 1.3에서 시연합니다.
-- **Scastie**는 sbt 옵션을 지원하는 웹 기반 REPL 대안으로, 환경에 외부 라이브러리를 추가할 수 있습니다.
-- **ScalaFiddle** 또한 웹 기반 대안입니다.
-- **IntelliJ IDEA**와 **Visual Studio Code (VS Code)** IDE 모두 **worksheets** 기능을 제공하며, 이는 REPL과 유사합니다.
-
 ---
 
 ## 1.2 Loading Source Code and JAR Files into the REPL
@@ -750,17 +741,6 @@ java.io.Serializable {
 
 이 파일의 용도 중 하나는 **Scala 3와 Scala 2.13+ 간의 통합**입니다. Scala forward compatibility 페이지에 따르면 "Scala 2.13은 이 (TASTy) 파일들을 읽어서, 예를 들어 특정 의존성에서 어떤 term, type, implicit이 정의되어 있는지, 그리고 이들을 올바르게 사용하기 위해 어떤 코드를 생성해야 하는지 학습할 수 있습니다. 이 작업을 관리하는 컴파일러의 한 부분은 Tasty Reader라고 합니다."
 
-### See Also
-
-- 제 블로그 글 "How to Create Inline Methods in Scala 3" 에서는 이 기법을 사용해 `inline` 메서드를 이해하는 방법을 보여 드립니다.
-- decompiler를 사용해 *.class* 파일을 Java 코드로 변환할 수도 있습니다. 저는 가끔 JAD 라는 도구를 사용하는데요, 이 도구는 2001년에 단종되었지만 놀랍게도 20년이 지난 지금도 여전히 class 파일을 부분적으로나마 디컴파일할 수 있습니다. Scala Gitter 채널에서는 훨씬 최신 디컴파일러인 CFR 가 언급되기도 했습니다.
-
-TASTy 및 *.tasty* 파일에 대한 추가 정보는 다음 자료들을 참고하시길 바랍니다.
-
-- "Macros: The Plan for Scala 3"
-- "Forward Compatibility for the Scala 3 Transition"
-- "Scala 3 Migration Guide: Compatibility Reference"
-
 ---
 
 ## 1.6 Running JAR Files with Scala and Java
@@ -852,7 +832,3 @@ Hello, world
 #### Why use sbt-assembly?
 
 참고로, 여러분의 애플리케이션이 managed 혹은 unmanaged 의존성을 사용하는데 `sbt assembly` 대신 `sbt package`를 사용하신다면, **해당 의존성과 그 transitive 의존성을 모두 파악**하고, 이 JAR 파일들을 찾아서 클래스패스 설정에 포함시켜야 합니다. 이 때문에 `sbt assembly` 나 유사한 도구의 사용이 강력히 권장됩니다.
-
-### See Also
-
-- sbt-assembly 설정 및 사용법에 대한 자세한 내용은 Recipe 17.11, "Deploying a Single Executable JAR File"을 참고하시길 바랍니다.
