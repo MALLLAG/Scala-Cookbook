@@ -245,10 +245,6 @@ def makeInt(s: String) = s.toInt
 
 이 접근 방식은 해당 메서드가 Java 코드에서 호출될 경우 **필수적으로** 요구됩니다. 이에 관한 자세한 내용은 Recipe 22.7, "Adding Exception Annotations to Scala Methods"에서 설명됩니다.
 
-### See Also
-
-- Recipe 24.6, "Using Scala's Error-Handling Types (Option, Try, and Either)"에서 `Option`, `Some`, `None`의 사용 방법에 대한 자세한 내용을 확인하실 수 있습니다.
-
 ---
 
 ## 3.2 Converting Between Numeric Types (Casting)
@@ -656,12 +652,6 @@ extension (x: Double)
 1.0 ~= (0.79, .2)    // false
 ```
 
-### See Also
-
-- "What Every Computer Scientist Should Know About Floating-Point Arithmetic"
-- Wikipedia의 floating-point accuracy arithmetic 페이지의 "Accuracy problems" 섹션
-- Wikipedia의 arbitrary-precision arithmetic 페이지
-
 ---
 
 ## 3.6 Handling Large Numbers
@@ -769,14 +759,6 @@ BigDecimal("0.2") * BigDecimal("0.7")   // BigDecimal = 0.14
 ```
 
 Joshua Bloch는 *Effective Java* (Addison-Wesley)에서 다음과 같이 말합니다. "금전 계산에는 `BigDecimal`, `int`, 또는 `long`을 사용하십시오."
-
-### See Also
-
-- Baeldung의 "BigDecimal and BigInteger in Java" 글에는 Scala의 `BigDecimal`과 `BigInt` 클래스가 감싸고 있는 Java 클래스들에 대한 많은 상세 정보가 있습니다.
-- 이 데이터 타입들을 데이터베이스에 저장해야 하는 경우, 다음 페이지들이 도움이 될 것입니다.
-  - Stack Overflow 페이지: "How to Insert BigInteger in Prepared Statement Java"
-  - Stack Overflow 페이지: "Store BigInteger into MySql"
-- "Unpredictability of the BigDecimal(double) Constructor" Stack Overflow 페이지에서는 Java에서 `double`을 `BigDecimal`에 전달할 때의 문제에 대해 논의합니다.
 
 ---
 
