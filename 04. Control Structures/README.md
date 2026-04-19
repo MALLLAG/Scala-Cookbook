@@ -316,17 +316,6 @@ BANANA
 ORANGE
 ```
 
-### See Also
-
-- `zipWithIndex` 사용 예시를 더 보시려면 Recipe 13.4, "Using zipWithIndex or zip to Create Loop Counters"를 참고하시길 바랍니다.
-- `Map` 순회 예시를 더 보시려면 Recipe 14.9, "Traversing a Map"을 참고하시길 바랍니다.
-
-`for` 루프의 동작 원리 뒤에 있는 이론은 매우 흥미로우며, 이를 알고 계시면 큰 도움이 됩니다. 저자는 다음 블로그 글들에서 자세히 다룹니다.
-
-- "How to Make a Custom Sequence Work as a for Loop Generator"
-- "How to Enable Filtering in a for Expression"
-- "How to Enable the Use of Multiple Generators in a for Expression"
-
 ---
 
 ## 4.2 Using for Loops with Multiple Counters
@@ -394,10 +383,6 @@ val res0: scala.collection.immutable.Range.Inclusive = Range 1 to 5
 ```
 
 `Range`는 많은 용도로 유용하며, `for` 루프에서 `<-` 기호와 함께 생성된 `Range`를 **generator** 라고 부릅니다. 보시는 것처럼 하나의 루프 안에서 여러 개의 generator를 쉽게 사용할 수 있습니다.
-
-### See Also
-
-- 제어 구조 포맷팅에 대한 Scala 스타일 가이드
 
 ---
 
@@ -578,10 +563,6 @@ val namesUpper: List[String] = List(CHRIS, ED, MAURICE)
 ```
 
 저자가 처음 Scala를 배울 때에는 모든 코드를 `for/yield` 표현식으로 작성했으나, 어느 날 가드 없는 `for/yield`가 `map`과 같다는 사실을 깨달았다고 합니다.
-
-### See Also
-
-- `for` 컴프리헨션과 `map`의 비교는 Recipe 13.5, "Transforming One Collection to Another with map"에서 더 자세히 보여 드립니다.
 
 ---
 
@@ -830,12 +811,6 @@ val days = Map(
 println(days(0))   // prints "Sunday"
 ```
 
-### See Also
-
-- JVM switch의 동작 방식에 관한 더 자세한 내용은 JVM spec on compiling switches를 참고하시길 바랍니다.
-- `lookupswitch`와 `tableswitch`의 차이에 관한 Stack Overflow 페이지에서는 "차이점은 `lookupswitch`가 키와 레이블을 가지는 테이블을 사용하는 반면, `tableswitch`는 레이블만 있는 테이블을 사용한다는 점입니다."라고 설명합니다. 자세한 내용은 Java Virtual Machine (JVM) specification의 "Compiling Switches" 섹션을 참고하시길 바랍니다.
-- 부분 함수에 관한 자세한 내용은 Recipe 10.7, "Creating Partial Functions"를 참고하시길 바랍니다.
-
 ---
 
 ## 4.7 Matching Multiple Conditions with One Case Statement
@@ -879,10 +854,6 @@ def executeCommand(cmd: Command): Unit = cmd match
 ```
 
 보시는 것처럼 각 `case` 문에 대해 여러 매칭 가능한 값들을 정의할 수 있는 기능은 코드를 단순하게 만들 수 있습니다.
-
-### See Also
-
-- 관련된 접근 방식은 Recipe 4.12를 참고하시길 바랍니다.
 
 ---
 
@@ -1086,8 +1057,6 @@ case list: List[X] => s"thanks for the List: $list"
 > by erasure case l: List[Int] => "List[Int]"
 >                    ^
 > ```
->
-> 타입 소거에 익숙하지 않으시다면, 이 레시피의 See Also 섹션에 JVM에서 타입 소거가 어떻게 동작하는지 설명하는 페이지 링크가 포함되어 있습니다.
 
 ### Discussion
 
@@ -1268,12 +1237,6 @@ s.toIntOption match
 ```
 
 `match` 표현식 안에서는 성공 조건과 실패 조건을 처리하기 위해 `Some`과 `None` 케이스만 지정하시면 됩니다. `Option`, `Some`, `None` 사용 예시는 Recipe 24.6, "Using Scala's Error-Handling Types (Option, Try, and Either)"를 참고하시길 바랍니다.
-
-### See Also
-
-- Stack Overflow에서 `match` 표현식을 사용할 때 타입 소거를 우회하는 방법에 대한 논의
-- 저자의 Blue Parrot 애플리케이션
-- 타입 소거에 관한 문서
 
 ---
 
@@ -1568,10 +1531,6 @@ if (o.isInstanceOf[Person]) { // handle this ...
 >
 > 반대로 함수형 프로그래밍 코드에서는 타입을 다루기 위해 `match` 표현식의 패턴 매칭이 항상 사용됩니다.
 
-### See Also
-
-- 더 많은 `match` 기법은 Recipe 4.10을 참고하시길 바랍니다.
-
 ---
 
 ## 4.14 Working with a List in a Match Expression
@@ -1683,16 +1642,6 @@ def myTraversalMethod[A](xs: List[A]): B = xs match
 > ```
 >
 > 그러나 이들은 값이 할당되면 변할 수 없습니다. *variable*이라는 용어는 함수형 프로그래밍에서도 같은 의미를 가집니다.
-
-### See Also
-
-저자는 처음에 재귀가 이해하기 힘든 주제라고 느꼈기 때문에, 여러 블로그 글을 작성했습니다.
-
-- "Scala Recursion Examples (Recursive Programming)"
-- "Recursive: How Recursive Function Calls Work"
-- "Tail-Recursive Algorithms in Scala"
-- "Recursion: Visualizing the Recursive sum Function"
-- "Recursion: Thinking Recursively"에서 저자는 **identity element** 에 대해 씁니다. `0`은 sum 연산의 항등 원소이고, `1`은 product 연산의 항등 원소이며, `""`(빈 문자열)은 문자열 작업의 항등 원소가 되는 등입니다.
 
 ---
 
@@ -1838,12 +1787,6 @@ allCatch.either("foo".toInt)
     // Left(NumberFormatException: For input string: "foo")
 ```
 
-### See Also
-
-- 메서드가 예외를 던질 수 있음을 선언하는 더 많은 예시는 Recipe 8.7, "Declaring That a Method Can Throw an Exception"을 참고하시길 바랍니다.
-- `Option/Some/None`과 `Try/Success/Failure` 사용법에 관한 더 자세한 내용은 Recipe 24.6, "Using Scala's Error-Handling Types (Option, Try, and Either)"를 참고하시길 바랍니다.
-- `allCatch`에 관한 자세한 내용은 `scala.util.control.Exception` Scaladoc 페이지를 참고하시길 바랍니다.
-
 ---
 
 ## 4.16 Declaring a Variable Before Using It in a try/catch/finally Block
@@ -1933,18 +1876,6 @@ finally
 ```
 
 하지만 Scala로 작업하면 `null` 값이 존재한다는 사실조차 잊어버릴 수 있는 기회가 주어지기 때문에, 이 방식은 **권장되지 않는** 접근입니다.
-
-### See Also
-
-다음 레시피들에서 (a) `null` 값을 **쓰지 말아야** 하는 방법과 (b) 대신 `Option`, `Try`, `Either`를 사용하는 방법에 대한 더 자세한 내용을 보실 수 있습니다.
-
-- Recipe 24.5, "Eliminating null Values from Your Code"
-- Recipe 24.6, "Using Scala's Error-Handling Types (Option, Try, and Either)"
-- Recipe 24.8, "Handling Option Values with Higher-Order Functions"
-
-자원을 여는 코드와 작업이 끝나면 닫는 코드를 작성해야 할 때마다 `scala.util.Using` 객체를 사용하시면 도움이 될 수 있습니다. 이 객체를 사용하는 예시와 훨씬 더 나은 텍스트 파일 읽기 방법은 Recipe 16.1, "Reading Text Files"를 참고하시길 바랍니다.
-
-또한 Recipe 24.8, "Handling Option Values with Higher-Order Functions"는 `match` 표현식 외에도 `Option` 값으로 작업하는 다른 방법을 보여 드립니다.
 
 ---
 
@@ -2038,8 +1969,3 @@ def doubleIf(test1: => Boolean)(test2: => Boolean)(codeBlock: => Unit) =
 ```
 
 `doubleIf`는 테스트 하나만 수행하면 되고 무한정 반복할 필요가 없기 때문에, 메서드 본문에 재귀 호출이 필요하지 않습니다. 두 테스트 조건을 그저 확인하고, 둘 다 `true`로 평가되면 `codeBlock`을 실행합니다.
-
-### See Also
-
-- 저자가 이 기법의 좋아하는 사용법 중 하나는 David Pollak (Apress)의 *Beginning Scala* 책에서 보여줍니다. `scala.util.Using` 객체에 의해 쓸모없어졌지만, 저자의 블로그 글 "The using Control Structure in Beginning Scala"에서 이 기법이 어떻게 동작하는지 설명합니다.
-- Scala `Breaks` 클래스는 `for` 루프에서 `break`와 `continue` 기능을 구현하는 데 쓰이며, 저자는 이에 대해 "Scala: How to Use break and continue in for and while Loops"에 글을 썼습니다. `Breaks` 클래스 소스 코드는 상당히 단순하며, 제어 구조를 구현하는 또 다른 예시를 제공합니다. Scaladoc 페이지의 링크에서 그 소스 코드를 확인하실 수 있습니다.
